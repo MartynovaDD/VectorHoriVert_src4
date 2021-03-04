@@ -8,13 +8,14 @@ using namespace std;
 void AutoTest();
 
 class CNode;
+class CVector1;
 class CVector {
 protected:
 	const char* filename;
 	double* s; int n;
 public:
 	CVector() { SetZero(); }
-	~CVector() { Clean(); }
+	virtual ~CVector() { Clean(); }
 	CVector(const char* FileName, const double* ss, int n=0) {
 		filename = FileName;
 		this->n = n; 
@@ -54,40 +55,9 @@ public:
 	}
 	virtual int output(const char* FileName) = 0;
 	friend class CNode;
-};
-
-class CVector0 :public CVector {
-public:
-	using CVector::CVector;
-	using CVector::operator=;
-	~CVector0() {};
-	int output(const char* FileName) override {
-		filename = FileName;
-		ofstream output(FileName);
-		for (int i = 0; i < n; i++) {
-			output << s[i] << endl;
-			cout << s[i] << endl;
-		}
-		return 0;
-	}
-	CVector0 operator+(const CVector0& b);
-	CVector0 operator-(const CVector0& b);
+	friend CVector1 operator+(const CVector& first, const CVector& second);
+	friend CVector1 operator-(const CVector& first, const CVector& second);
 };
 
 
-class CVector1 :public CVector {
-public:
-	using CVector::CVector;
-	using CVector::operator=;
-	~CVector1() {};
-	int output(const char* FileName) override {
-		ofstream output(FileName);
-		for (int i = 0; i < n; i++) {
-			output << s[i] << " ";
-			cout << s[i] << " ";
-		}
-		return 0;
-	}
-	CVector1 operator+(const CVector1& b);
-	CVector1 operator-(const CVector1& b);
-};
+

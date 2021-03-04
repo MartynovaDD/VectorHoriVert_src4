@@ -4,6 +4,8 @@
 #include <fstream>
 #include <stdio.h>
 #include <string>  
+#include "CVectorHori.h"
+#include "CVectorVert.h"
 using namespace std;
 
 

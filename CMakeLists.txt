@@ -4,8 +4,8 @@ project(main)
 
 #aux_source_directory(. SRC_LIST)
 
-set(VECTOR_SRC main.cpp CVector.cpp Source.cpp AutoTest.cpp data.txt hori.txt vert.txt)
-set(VECTOR_HDR CVector.h Source.h)
+set(VECTOR_SRC main.cpp CVector.cpp Source.cpp CVectorHori.cpp CVectorVert.cpp AutoTest.cpp data.txt hori.txt vert.txt)
+set(VECTOR_HDR CVector.h Source.h CVectorHori.h CVectorVert.h)
 
 #add_executable(${PROJECT_NAME} ${SRC_LIST})
 #add_library(vector STATIC ${VECTOR_SRC} ${VECTOR_HDR})

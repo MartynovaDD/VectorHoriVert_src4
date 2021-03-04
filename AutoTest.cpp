@@ -1,4 +1,7 @@
 #include "CVector.h"
+#include "Source.h"
+#include "CVectorVert.h"
+#include "CVectorHori.h"
 
 
 void AutoTest() {
