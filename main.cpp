@@ -37,22 +37,23 @@ int main(void)
 				file >> g;
 				file.seekg(1, ios::cur);
 				getline(file, s, ' ');
-				const char* p = s.c_str();
 				file >> l;
 				double* z = new double[l];
-				for (int i = 0; i < l; i++) {
-					file >> z[i];
+				for (int j = 0; j < l; j++) {
+					file >> z[j];
 				}
 				if (g == 0) {
-					arr[i] = new CVector0(p, z, l);
+					arr[i] = new CVector0(s, z, l);
 				}
+				
 				if (g == 1) {
-					arr[i] = new CVector1(p, z, l);
+					arr[i] = new CVector1(s, z, l);
 				}
 				delete[] z;
 			}
 			for (int i = 0; i < n; ++i) {
-				arr[i]->output(arr[i]->Filename());
+				cout << arr[i]->Filename() << endl;
+				arr[i]->output((arr[i]->Filename()).c_str());
 			}
 			file.close();
 			delete[] str;

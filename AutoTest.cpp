@@ -13,7 +13,7 @@ void AutoTest() {
     for (int i = 0; i < 3; i++) {
         v[i] = 1;
     }
-    const char* f = "vert.txt";
+    
     CVector0 a("vert.txt", q, 3);
     CVector0 b("vert.txt", v, 3);
     CVector0 d;

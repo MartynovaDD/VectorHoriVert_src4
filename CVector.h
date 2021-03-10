@@ -11,13 +11,13 @@ class CNode;
 class CVector1;
 class CVector {
 protected:
-	const char* filename;
+	string filename;
 	double* s; int n;
 public:
 	CVector() { SetZero(); }
 	virtual ~CVector() { Clean(); }
-	CVector(const char* FileName, const double* ss, int n=0) {
-		filename = FileName;
+	CVector(string FileName, const double* ss, int n=0) {
+		filename = FileName; //s.c_str()
 		this->n = n; 
 		s = new double[n];
 		for (int i = 0; i < n; i++) { s[i] = ss[i]; }
@@ -47,10 +47,10 @@ public:
 		}
 		return CNode(this, i);
 	}
-	double& operator[](int i) const {
+	/*double& operator[](int i) const{
 		return s[i];
-	}
-	const char* Filename() {
+	}*/
+	string Filename() {
 		return filename;
 	}
 	virtual int output(const char* FileName) = 0;
