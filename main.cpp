@@ -25,6 +25,10 @@ int main(void)
 			int n = 0;
 			string s;
 			char* str = new char[1024];
+			ofstream output1("hori.txt");
+			ofstream output2("vert.txt");
+			output1.close();
+			output2.close();
 			while (!input.eof())
 			{
 				input.getline(str, 1024, '\n');
